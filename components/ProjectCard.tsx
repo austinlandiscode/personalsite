@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Project } from "@/lib/data";
 
 function GitHubIcon() {
@@ -57,14 +58,14 @@ export default function ProjectCard({ project: p, liveLabel = "Live demo" }: { p
         {(p.liveUrl || p.repoUrl) && (
           <div className="mt-6 flex gap-3">
             {p.liveUrl && (
-              <a
+              // Pages on this site open in the same tab; external links open a new one.
+              <Link
                 href={p.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...(p.liveUrl.startsWith("/") ? {} : { target: "_blank", rel: "noopener noreferrer" })}
                 className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-medium text-bg transition-opacity hover:opacity-90"
               >
                 <PlayIcon /> {liveLabel}
-              </a>
+              </Link>
             )}
             {p.repoUrl && (
               <a

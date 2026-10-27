@@ -205,7 +205,8 @@ export const games: Project[] = [
     date: "2026",
     description:
       "The classic word-guessing game, played in the console. Guess the hidden animal one letter at a time before your six lives run out.",
-    tech: ["Python"],
+    tech: ["Python", "React"],
+    liveUrl: "/games/hangman",
     repoUrl: "https://github.com/austinlandiscode/personalsite/blob/main/app/games/hangman.py",
   },
   {
