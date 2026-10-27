@@ -1,9 +1,20 @@
 import Footer from "@/components/Footer";
+import Link from "next/link";
 import Nav from "@/components/Nav";
+import ProjectCard from "@/components/ProjectCard";
 import Section from "@/components/Section";
 import Terminal from "@/components/Terminal";
 import Timeline from "@/components/Timeline";
-import { education, engineeringRoles, otherRoles, profile, skillGroups, stats } from "@/lib/data";
+import {
+  certifications,
+  education,
+  engineeringRoles,
+  otherRoles,
+  profile,
+  projects,
+  skillGroups,
+  stats,
+} from "@/lib/data";
 
 function Arrow() {
   return (
@@ -42,15 +53,15 @@ export default function Home() {
               <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
                 Hi, I&apos;m {profile.firstName}.
                 <br />
-                <span className="text-gradient">I build commerce on the cloud.</span>
+                <span className="text-gradient">I&apos;m building with AI.</span>
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">{profile.tagline}</p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <a
-                  href="#experience"
+                  href="#projects"
                   className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 text-sm font-medium text-bg transition-opacity hover:opacity-90"
                 >
-                  View experience <Arrow />
+                  View projects <Arrow />
                 </a>
                 <a
                   href={profile.linkedin}
@@ -96,12 +107,7 @@ export default function Home() {
             <div className="rounded-xl border border-line bg-surface p-6">
               <p className="font-mono text-xs uppercase tracking-wider text-dim">What I bring</p>
               <ul className="mt-5 space-y-4">
-                {[
-                  ["Platform depth", "Hands-on B2C Commerce Cloud and SFRA delivery"],
-                  ["Fast onboarding", "Productive quickly inside existing client codebases"],
-                  ["Ownership", "Ran my own business and led teams before writing code"],
-                  ["Client focus", "Years of account and customer relationship experience"],
-                ].map(([h, d]) => (
+                {profile.strengths.map(([h, d]) => (
                   <li key={h} className="flex gap-3">
                     <span className="mt-1 text-accent">▹</span>
                     <div>
@@ -115,8 +121,23 @@ export default function Home() {
           </div>
         </Section>
 
+        {/* Projects */}
+        <Section id="projects" index="02" title="AI Projects">
+          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {projects.map((p) => (
+              <ProjectCard key={p.title} project={p} />
+            ))}
+          </ul>
+          <Link
+            href="/games"
+            className="mt-8 inline-flex items-center gap-2 font-mono text-sm text-muted transition-colors hover:text-accent"
+          >
+            Also building games <Arrow />
+          </Link>
+        </Section>
+
         {/* Skills */}
-        <Section id="skills" index="02" title="Skills & Stack">
+        <Section id="skills" index="03" title="Skills & Stack">
           <div className="grid gap-5 md:grid-cols-3">
             {skillGroups.map((g) => (
               <div
@@ -140,7 +161,7 @@ export default function Home() {
         </Section>
 
         {/* Experience */}
-        <Section id="experience" index="03" title="Experience">
+        <Section id="experience" index="04" title="Experience">
           <div className="grid gap-16 lg:grid-cols-[220px_1fr]">
             <h3 className="font-mono text-sm text-dim lg:sticky lg:top-24 lg:self-start">
               <span className="text-accent">{"//"}</span> Software engineering
@@ -154,9 +175,28 @@ export default function Home() {
           </div>
         </Section>
 
-        {/* Education */}
-        <Section id="education" index="04" title="Education">
+        {/* Certifications & Education */}
+        <Section id="credentials" index="05" title="Certifications & Education">
           <div className="grid gap-5 md:grid-cols-2">
+            {certifications.map((c) => (
+              <div key={c.name} className="rounded-xl border border-accent/40 bg-surface p-6">
+                <p className="font-mono text-xs text-dim">
+                  {c.date} <span className="text-accent">· Certification</span>
+                </p>
+                <h3 className="mt-2 text-lg font-medium text-fg">{c.name}</h3>
+                <p className="mt-1 text-muted">{c.issuer}</p>
+                {c.url && (
+                  <a
+                    href={c.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-2 text-sm text-accent hover:opacity-80"
+                  >
+                    View credential <Arrow />
+                  </a>
+                )}
+              </div>
+            ))}
             {education.map((e) => (
               <div key={e.school} className="rounded-xl border border-line bg-surface p-6">
                 <p className="font-mono text-xs text-dim">{e.years}</p>
@@ -172,10 +212,10 @@ export default function Home() {
           <div className="relative overflow-hidden rounded-2xl border border-line bg-surface px-6 py-14 text-center sm:px-12 sm:py-20">
             <div className="glow pointer-events-none absolute inset-0" />
             <div className="relative">
-              <p className="font-mono text-sm text-accent">05 · What&apos;s next</p>
+              <p className="font-mono text-sm text-accent">06 · What&apos;s next</p>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-5xl">Let&apos;s build something.</h2>
               <p className="mx-auto mt-5 max-w-xl text-muted">
-                I&apos;m looking for my next software development role. If you have a team, a project, or a
+                I&apos;m looking for my next role in AI development. If you have a team, a project, or a
                 question, my inbox is open.
               </p>
               <div className="mt-9 flex flex-wrap justify-center gap-3">

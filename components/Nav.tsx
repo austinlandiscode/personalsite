@@ -7,10 +7,10 @@ import { profile } from "@/lib/data";
 // Section links start with "/" so they also work from other pages.
 const links = [
   { href: "/#about", label: "About" },
-  { href: "/#skills", label: "Skills" },
+  { href: "/#projects", label: "Projects" },
   { href: "/#experience", label: "Experience" },
+  { href: "/#credentials", label: "Credentials" },
   { href: "/games", label: "Games" },
-  { href: "/#education", label: "Education" },
   { href: "/#contact", label: "Contact" },
 ];
 

@@ -3,27 +3,42 @@
 export const profile = {
   name: "Austin Landis",
   firstName: "Austin",
-  title: "Software Developer",
+  title: "AI Developer",
   location: "Lincoln, Nebraska",
   email: "austinlandiscode@gmail.com",
   linkedin: "https://www.linkedin.com/in/austinlandiscode",
   tagline:
-    "Building commerce experiences on Salesforce Commerce Cloud: B2C storefronts, SFRA cartridges, and features that work in production.",
+    "Software developer moving into AI engineering, bringing production experience from enterprise commerce to building with large language models.",
   summary: [
-    "I'm a software developer with two and a half years of professional experience in the Salesforce Commerce Cloud space. I've had the chance to work on some excellent development teams, delivering multi-cloud implementations with a primary focus on B2C Commerce.",
-    "My work has included building a proprietary cartridge that extends base SFRA, and joining established projects in staff-augmentation roles, where I picked up existing codebases fast, shipped new custom features, and helped work through bug backlogs.",
+    "I'm a software developer focused on AI. I recently completed an AI builders course and I'm now building my own AI projects. You can follow that work in the Projects section as it ships.",
+    "My foundation is two and a half years of professional development in the Salesforce Commerce Cloud space: multi-cloud implementations, a proprietary cartridge that extends base SFRA, and staff-augmentation work where I picked up existing codebases fast and shipped features to production. I bring that same standard to AI work: building things that hold up for real users, not just demos.",
     "Before and alongside software, I ran a business, led instruction programs, and managed high-volume kitchens. That background shows in how I work: I'm organized, calm under pressure, and focused on the people I'm building for.",
+  ],
+  strengths: [
+    ["Production experience", "Shipped code on real teams and in real client codebases"],
+    ["Building with AI", "Hands-on with AI coding tools and LLM-powered development"],
+    ["Fast onboarding", "Productive quickly inside unfamiliar codebases"],
+    ["Ownership", "Ran my own business and led teams before writing code"],
   ],
 };
 
 export const stats = [
-  { value: "2.5+", label: "Years in SFCC" },
-  { value: "B2C", label: "Commerce focus" },
-  { value: "SFRA", label: "Cartridge development" },
+  { value: "AI", label: "Builders course complete" },
+  { value: "2.5+", label: "Years shipping production code" },
+  { value: "Full-stack", label: "Web foundation" },
   { value: "6+", label: "Years leading teams" },
 ];
 
+// Review these: keep only what you're comfortable being asked about in an interview.
 export const skillGroups = [
+  {
+    title: "AI Development",
+    items: ["LLM APIs", "Prompt Engineering", "AI-Assisted Development", "Claude Code"],
+  },
+  {
+    title: "Engineering",
+    items: ["JavaScript", "TypeScript", "React / Next.js", "HTML5", "CSS / SCSS", "Git"],
+  },
   {
     title: "Commerce Platform",
     items: [
@@ -31,16 +46,8 @@ export const skillGroups = [
       "SFRA",
       "Custom Cartridges",
       "Multi-cloud Implementations",
-      "Business Manager",
+      "ISML",
     ],
-  },
-  {
-    title: "Engineering",
-    items: ["JavaScript", "ISML", "HTML5", "CSS / SCSS", "Full-Stack Web Development", "Git"],
-  },
-  {
-    title: "Professional",
-    items: ["Leadership", "Time Management", "Account Management", "Client Relations", "Staff Augmentation"],
   },
 ];
 
@@ -124,6 +131,22 @@ export const otherRoles: Role[] = [
   },
 ];
 
+export type Certification = {
+  name: string;
+  issuer: string;
+  date: string;
+  url?: string; // link to the credential or certificate
+};
+
+// Placeholder: fill in the provider, date, and credential link for your course.
+export const certifications: Certification[] = [
+  {
+    name: "AI Builders Course",
+    issuer: "Course provider",
+    date: "2026",
+  },
+];
+
 export const education = [
   {
     school: "Epicodus",
@@ -137,36 +160,64 @@ export const education = [
   },
 ];
 
-export type Game = {
+// Shared shape for AI projects and games.
+export type Project = {
   title: string;
-  year: string;
+  date: string;
+  status?: "In progress" | "Planned"; // leave out once it's shipped
   description: string;
   tech: string[];
-  image?: string; // path under /public, e.g. "/games/my-game.png"
-  playUrl?: string;
+  image?: string; // path under /public, e.g. "/projects/my-app.png"
+  liveUrl?: string;
   repoUrl?: string;
 };
 
+// Placeholder entries: replace these with your own AI projects.
+export const projects: Project[] = [
+  {
+    title: "AI Project One",
+    date: "2026",
+    status: "In progress",
+    description: "What it does, who it's for, and how AI fits in: which model, and what problem it solves.",
+    tech: ["TypeScript", "Claude API"],
+    repoUrl: "#",
+  },
+  {
+    title: "AI Project Two",
+    date: "2026",
+    status: "In progress",
+    description: "An interesting technical piece: an agent, a tool integration, retrieval over your own data, or an evaluation you ran.",
+    tech: ["Python", "LLM API"],
+  },
+  {
+    title: "AI Project Three",
+    date: "2026",
+    status: "Planned",
+    description: "Something you're about to start. Planned work shows momentum while the bigger projects are being built.",
+    tech: ["Next.js"],
+  },
+];
+
 // Placeholder entries: replace these with your own games.
-export const games: Game[] = [
+export const games: Project[] = [
   {
     title: "Game Title One",
-    year: "2026",
+    date: "2026",
     description: "A sentence or two about the game: the genre, the core idea, and what you're proud of.",
     tech: ["JavaScript", "HTML5 Canvas"],
-    playUrl: "#",
+    liveUrl: "#",
     repoUrl: "#",
   },
   {
     title: "Game Title Two",
-    year: "2025",
+    date: "2025",
     description: "What makes this one interesting: a mechanic you built, a challenge you solved, or what you learned.",
     tech: ["TypeScript", "Phaser"],
     repoUrl: "#",
   },
   {
     title: "Game Title Three",
-    year: "2024",
+    date: "2024",
     description: "A short pitch. Add a screenshot under public/games/ and set the image field to show it here.",
     tech: ["Godot", "GDScript"],
   },

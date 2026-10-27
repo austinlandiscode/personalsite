@@ -10,13 +10,13 @@ const lines: { cmd: string; out: React.ReactNode }[] = [
     ),
   },
   {
-    cmd: "cat stack.json",
+    cmd: "cat focus.json",
     out: (
       <>
         {"{ "}
-        <span className="text-accent-2">&quot;platform&quot;</span>: <span className="text-accent">&quot;SFCC B2C&quot;</span>,{" "}
-        <span className="text-accent-2">&quot;framework&quot;</span>: <span className="text-accent">&quot;SFRA&quot;</span>,{" "}
-        <span className="text-accent-2">&quot;lang&quot;</span>: <span className="text-accent">&quot;JavaScript&quot;</span>
+        <span className="text-accent-2">&quot;now&quot;</span>: <span className="text-accent">&quot;building with AI&quot;</span>,{" "}
+        <span className="text-accent-2">&quot;foundation&quot;</span>: <span className="text-accent">&quot;full-stack JS&quot;</span>,{" "}
+        <span className="text-accent-2">&quot;shipped&quot;</span>: <span className="text-accent">&quot;enterprise commerce&quot;</span>
         {" }"}
       </>
     ),
