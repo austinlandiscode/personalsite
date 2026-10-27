@@ -136,3 +136,38 @@ export const education = [
     years: "2017 – 2018",
   },
 ];
+
+export type Game = {
+  title: string;
+  year: string;
+  description: string;
+  tech: string[];
+  image?: string; // path under /public, e.g. "/games/my-game.png"
+  playUrl?: string;
+  repoUrl?: string;
+};
+
+// Placeholder entries: replace these with your own games.
+export const games: Game[] = [
+  {
+    title: "Game Title One",
+    year: "2026",
+    description: "A sentence or two about the game: the genre, the core idea, and what you're proud of.",
+    tech: ["JavaScript", "HTML5 Canvas"],
+    playUrl: "#",
+    repoUrl: "#",
+  },
+  {
+    title: "Game Title Two",
+    year: "2025",
+    description: "What makes this one interesting: a mechanic you built, a challenge you solved, or what you learned.",
+    tech: ["TypeScript", "Phaser"],
+    repoUrl: "#",
+  },
+  {
+    title: "Game Title Three",
+    year: "2024",
+    description: "A short pitch. Add a screenshot under public/games/ and set the image field to show it here.",
+    tech: ["Godot", "GDScript"],
+  },
+];

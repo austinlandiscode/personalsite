@@ -1,14 +1,17 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { profile } from "@/lib/data";
 
+// Section links start with "/" so they also work from other pages.
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#experience", label: "Experience" },
-  { href: "#education", label: "Education" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#about", label: "About" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/games", label: "Games" },
+  { href: "/#education", label: "Education" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Nav() {
@@ -29,18 +32,18 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
-        <a href="#top" className="font-mono text-sm tracking-tight text-fg">
+        <Link href="/" className="font-mono text-sm tracking-tight text-fg">
           <span className="text-accent">~/</span>
           {profile.firstName.toLowerCase()}
           <span className="text-dim">.dev</span>
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="text-sm text-muted transition-colors hover:text-fg">
+              <Link href={l.href} className="text-sm text-muted transition-colors hover:text-fg">
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -69,13 +72,13 @@ export default function Nav() {
         <ul className="border-t border-line px-5 pb-4 md:hidden">
           {links.map((l) => (
             <li key={l.href}>
-              <a
+              <Link
                 href={l.href}
                 onClick={() => setOpen(false)}
                 className="block py-3 text-muted transition-colors hover:text-fg"
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import Section from "@/components/Section";
 import Terminal from "@/components/Terminal";
@@ -199,14 +200,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-line">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-5 py-8 text-sm text-dim sm:flex-row sm:px-8">
-          <p>
-            © {new Date().getFullYear()} {profile.name}
-          </p>
-          <p className="font-mono text-xs">Built with Next.js & Tailwind CSS</p>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
