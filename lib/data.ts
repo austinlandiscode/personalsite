@@ -201,12 +201,12 @@ export const projects: Project[] = [
 // Placeholder entries: replace these with your own games.
 export const games: Project[] = [
   {
-    title: "Game Title One",
+    title: "Hangman",
     date: "2026",
-    description: "A sentence or two about the game: the genre, the core idea, and what you're proud of.",
-    tech: ["JavaScript", "HTML5 Canvas"],
-    liveUrl: "#",
-    repoUrl: "#",
+    description:
+      "The classic word-guessing game, played in the console. Guess the hidden animal one letter at a time before your six lives run out.",
+    tech: ["Python"],
+    repoUrl: "https://github.com/austinlandiscode/personalsite/blob/main/app/games/hangman.py",
   },
   {
     title: "Game Title Two",
